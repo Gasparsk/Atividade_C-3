@@ -21,6 +21,20 @@ float calcular_media(float n1)
     return soma / TAM;
 }
 
+void situacao(n1)
+{
+    
+
+    if (n1 >= 7)
+    {
+        printf("\n Aprovado!");
+    }
+    else
+    {
+        printf("\n Reprovado!");
+    }
+}
+
 int main()
 {
 
@@ -32,11 +46,13 @@ int main()
 
     for (i = 0; i < TAM; i++)
     {
-        
+
         printf("Digite seu Nome: ");
+        fflush(stdin);
         gets(nota[i].nome);
 
-        printf("Digite a data de nascimento: ");
+        printf("Digite a data de Nascimento: ");
+        fflush(stdin);
         gets(nota[i].data);
 
         for (j = 0; j < TAM; j++)
@@ -51,7 +67,12 @@ int main()
         soma = 0;
     }
 
-    printf("\nMedia: %.2f \n", media[0]);
-    printf("\nMedia: %.2f \n", media[1]);
+    for (i = 0; i < TAM; i++)
+    {
+
+        printf("\nMedia: %.2f \n", media[i]);
+        situacao(media[i]);
+    }
+
     return 0;
 }
