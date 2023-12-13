@@ -12,7 +12,9 @@ struct dados_pessoa
     char email[200];
 };
 
-char *verificacaoDados(struct dados_pessoa contato[], char *buscador)
+typedef struct dados_pessoa dados_pessoa;
+
+char *verificacaoDados(dados_pessoa contato[], char *buscador)
 {
     int i;
 
@@ -24,7 +26,7 @@ char *verificacaoDados(struct dados_pessoa contato[], char *buscador)
             printf("Numero encontrado: %s \n", contato[i].telefone);
             break;
         }
-        printf("\nContato não encontrado.");
+        
     }
 }
 
@@ -33,7 +35,7 @@ int main()
     int i;
     char encontrar[200];
 
-    struct dados_pessoa contato[TAM];
+    dados_pessoa contato[TAM];
 
     for (i = 0; i < TAM; i++)
     {
@@ -51,7 +53,7 @@ int main()
 
     printf("Busca de contatos.\n");
     printf("Digite um nome para acessar o número de contato: ");
-    gets(buscador);
+    gets(encontrar);
 
     verificacaoDados(contato,encontrar);
 
